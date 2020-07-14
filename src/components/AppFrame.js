@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppHeader from './AppHeader';
 
-//? (1) body va a ser un elemento renderizable 
+//? (1) body va a ser un elemento renderizable
 //?     (cualquier elemento que me pueden pasar desde React que se pueda renderizar)
 
 const AppFrame = ({header, body}) => {
