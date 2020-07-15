@@ -13,6 +13,8 @@ import CustomersActions from './../components/CustomersActions';
 //?     En caso que yo quisiera que mi componente funcione independientemente de como es llamado,
 //?     deberia exportar como `withRouter(HomeContainer)` ya que `withRouter` es un 'decorator'
 //?     lo cual significa que agrega funcionalidad a mi componente.
+//?     withRouter agrega las propiedades match, location, history y re-renderiza al componente
+//?     cuando estas propiedades se modifican.
 
 class HomeContainer extends Component {
 
