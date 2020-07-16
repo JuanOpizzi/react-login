@@ -9,21 +9,6 @@ import { fetchCustomers } from '../actions/fetchCustomers';
 
 //? (1) Uso AppFrame para hacer mas estandar la parte visual
 
-const customers = [
-  { "dni": "27000000",
-    "name": "Juan Perez",
-    "age": 37,
-  },
-  { "dni": "30000000",
-    "name": "Otro",
-    "age": 35,
-  },
-  { "dni": "33000000",
-    "name": "Luis Martinez",
-    "age": 32,
-  },
-];
-
 class CustomersContainer extends Component {
 
   componentDidMount() {
@@ -52,7 +37,7 @@ class CustomersContainer extends Component {
     return (
       <div>
         <AppFrame header={'Listado de clientes'}
-          body={this.renderBody(customers)}>
+          body={this.renderBody(this.props.customers)}>
         </AppFrame>
       </div>
     );
@@ -61,10 +46,20 @@ class CustomersContainer extends Component {
 
 CustomersContainer.propTypes = {
   fetchCustomers: PropTypes.func.isRequired,
+  customers: PropTypes.array.isRequired,
 };
+
+//* Lo defino como una propiedad por defecto
+CustomersContainer.defaultProps = {
+  customers: []
+}
 
 //* Ejecuto la funcion mapeada fetchCustomers y uso mi dispatch para ejecutar
 //* mi action creator
 const mapDispatchToProps = { fetchCustomers };
 
-export default withRouter(connect(null, mapDispatchToProps)(CustomersContainer));
+const mapStateToProps = state => ({
+  customers: state.customers
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CustomersContainer));
