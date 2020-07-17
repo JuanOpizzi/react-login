@@ -4,6 +4,7 @@ import './App.css';
 import HomeContainer from './containers/HomeContainer';
 import CustomersContainers from './containers/CustomersContainer';
 import { Component } from 'react';
+import CustomerContainer from './containers/CustomerContainer';
 
 class App extends Component {
 
@@ -13,7 +14,6 @@ class App extends Component {
 
   renderCustomListContainer = () => <h1>Customers List Container</h1>
 
-  renderCustomNewContainer = () => <h1>Customers New Container</h1>
 
   render(){
     return (
@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/customers" component={CustomersContainers} />
           <Switch>
             <Route path="/customers/new" component={this.renderCustomNewContainer} />
-            <Route path="/customers/:dni" component={this.renderCustomContainer} />
+            <Route path="/customers/:dni" component={CustomerContainer} />
           </Switch>
         </div>
       </Router>
